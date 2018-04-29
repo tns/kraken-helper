@@ -18,6 +18,14 @@ class Order:
         self._pair= ''
         self._description = ''
         self.update()
+
+    def __str__(self):
+        if (self._ret['error'] != []):
+            return str(datetime.datetime.now()) + ' ' + str(self._txid) + ' - ' + str(self._ret['error'])
+        else:
+            return str(datetime.datetime.now()) + ' ' + str(self._txid) + ' - ' + str(self._description) + ' status: ' + self._status
+
+
     
     def update(self):
         try:
