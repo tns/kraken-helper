@@ -16,7 +16,9 @@ class Ticker:
             self._ask = decimal.Decimal(JSONdata['result'][self._pair]['a'][0])
         else:
             self.update()
- 
+
+    def __str__(self):
+        return self._pair + ': price: ' + str(self._currentPrice) + ' bid: '+ str(self._bid) + ' ask: ' + str(self._bid)
 
     def update(self):
         try:
